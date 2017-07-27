@@ -41,7 +41,7 @@ namespace CedroRestaurante.Controllers
             entity = RestauranteRepository.GetOne(id);
             return entity;
         }
-        // POST api/<controller>
+        // POST api/<controller> CADASTRAR
         public void Post([FromBody] Restaurante entity)
         {
             if (!string.IsNullOrEmpty(entity.nome_restaurante))
