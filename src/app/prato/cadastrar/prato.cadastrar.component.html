@@ -1,0 +1,43 @@
+﻿<div class="container">
+    <h1 class="text-center">Cadastro de Prato</h1>
+    <form class="form-horizontal" (submit)="cadastrar()">
+        <div class="row">
+            <div class="form-group">
+                <label class="col-md-1 text-right">Nome</label>
+                <div class="col-md-3">
+                    <input name="nome" [(ngModel)]="prato.nome_prato" type="text" class="form-control" value="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-1 text-right">Preço</label>
+                <div class="col-md-3">
+                    <input name="preco" [(ngModel)]="prato.preco_prato" type="text" class="form-control" value="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-1 text-right">Restaurante</label>
+                <div class="col-md-3">
+                    <select name="comboRestaurante" [(ngModel)]="prato.id_restaurante" class="form-control">
+                        <option *ngFor="let restaurante of restaurantes" [ngValue]="restaurante.id_restaurante">{{restaurante.nome_restaurante}}</option>
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+
+        <br />
+
+        <p *ngIf="mensagem.length" class="alert alert-success">{{mensagem}} <br /></p>
+
+        <div class="row">
+            <div class="col-md-3">
+                <a [routerLink]="['/prato']"><button type="button" class="btn btn-danger">Cancelar</button></a>
+                <button type="submit" class="btn btn-info">Cadastrar</button>
+            </div>
+        </div>
+
+    </form>
+</div>

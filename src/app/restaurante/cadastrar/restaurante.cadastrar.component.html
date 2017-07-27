@@ -1,0 +1,26 @@
+﻿<div class="container">
+    <h1 class="text-center">Cadastro de Restaurante</h1>
+    <form class="form-horizontal" (submit)="cadastrar($event)">
+        <div class="row">
+            <div class="form-group">
+                <label class="col-md-1 text-right">Nome</label>
+                <div class="col-md-3">
+                    <input name="nome" [(ngModel)]="restaurante.nome_restaurante" type="text" class="form-control" value="">
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-3">
+                <a [routerLink]="['/restaurante']"><button type="button" class="btn btn-danger">Cancelar</button></a>
+                <button type="submit" class="btn btn-info">Cadastrar</button>
+            </div>
+        </div>
+
+        <br />
+        <p *ngIf="mensagem.length" class="alert alert-success">{{mensagem}} <br /></p>
+        
+    </form>
+</div>

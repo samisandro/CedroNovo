@@ -1,0 +1,43 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+            <a [routerLink]="['/prato/cadastrar']"><button type="button" class="btn btn-info">Cadastrar</button></a>
+        </div>
+        <div class="col-md-5">
+            <input class="form-control" #textoPrato (keyup)="0" placeholder="Consulte pelo nome do prato" />
+
+        </div>
+    </div>
+
+    <br />
+
+    <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr class="active">
+                            <th title="Número" class="text-center">Nº </th>
+                            <th>Prato</th>
+                            <th>Preço</th>
+                            <th>Restaurante</th>
+                            <th class="text=center" class="text-center">Menu</th>
+                        </tr>
+                        <tr *ngFor="let prato of (pratos | filtroNomePrato: textoPrato.value)">
+                            <td class="text-center">{{prato.id_pratos}}</td>
+                            <td>{{prato.nome_prato}}</td>
+                            <td>{{prato.preco_prato}}</td>
+                            <td>{{prato.nome_restaurante}}</td>
+                            <td class="text-center">
+                                <a [routerLink]="['/prato/alterar', prato.id_pratos]"><button class="btn btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+                                <button class="btn btn-danger" (click)="excluir(prato)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
